@@ -1,37 +1,19 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
-
-<% @ary = Array.new %>
-<% @inner = Array.new %>
-<% @inner << "Phrases" %>
-<% @inner << "cats are better than dogs" %>
-<% @inner << "cats eat kibble" %>
-<% @inner << "cats eat mice" %>
-
-<% @inner.each do |i| %>
-	<% @k = Array.new %>
-	<% @k << i %>
-	<% @ary << @k %>
-<% end %>
-
-<%= render partial: 'partials/wordTree', locals: { inner: @inner, ary: @ary } %>
-
-<!--html>
+<html>
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {packages:['wordtree']});
       google.charts.setOnLoadCallback(drawChart);
 
-			var ary = '%= @inner %>'.split("&quot;, &quot;");
-			var all = [];
-			for(var key in ary){
-				var total = [];
-				ary[key] = ary[key].replace(/&quot;/g, "");
-				ary[key] = ary[key].replace(/[^\w\s]/g, "");
-				total.push(ary[key]);
-				all.push(total);
-			}
+      var ary = '<%= @inner %>'.split("&quot;, &quot;");
+      var all = [];
+      for(var key in ary){
+        var total = [];
+        ary[key] = ary[key].replace(/&quot;/g, "");
+        ary[key] = ary[key].replace(/[^\w\s]/g, "");
+        total.push(ary[key]);
+        all.push(total);
+      }
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable(all);
@@ -51,4 +33,4 @@
   <body>
     <div id="wordtree_basic" style="width: 900px; height: 500px;"></div>
   </body>
-</html-->
+</html>
