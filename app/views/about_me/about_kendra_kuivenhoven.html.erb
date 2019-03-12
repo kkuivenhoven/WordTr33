@@ -1,0 +1,28 @@
+<h1>AboutMe#about_me (food)</h1>
+<p>Find me in app/views/about_me/about_me.html.erb</p>
+
+<b>Double click at the beginning of phrase to zoom out of word tree.<br>
+Single click on any word or phrase to zoom into word tree.</b>
+
+<% @ary = Array.new %>
+<% @inner = Array.new %>
+<% @inner << "Phrases" %>
+<% @inner << "My favorite fast food restaurant is Arby's." %>
+<% @inner << "My favorite ice cream flavor is Moose Tracks." %>
+<% @inner << "My favorite chocolate candy is See's." %>
+<% @inner << "My favorite food of all time is garlic bread." %>
+<% @inner << "My favorite cookie is a chocolate chip cookie." %>
+<% @inner << "My favorite flavor of coffee is hazelnut" %>
+<% @inner << "My favorite thing to cook is jambalaya." %>
+<% @inner << "My favorite comfort food is mac n cheese." %>
+<% @inner << "My favorite dish at Thanksgiving is turkey." %>
+<% @inner << "My favorite soda is cherry soda or root beer." %>
+
+<% @inner.each do |i| %>
+	<% @k = Array.new %>
+	<% @k << i %>
+	<% @ary << @k %>
+<% end %>
+
+<%= render partial: 'partials/wordTree', locals: { inner: @inner, ary: @ary } %>
+

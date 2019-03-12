@@ -11,6 +11,7 @@
         var total = [];
         ary[key] = ary[key].replace(/&quot;/g, "");
         ary[key] = ary[key].replace(/[^\w\s]/g, "");
+        ary[key] = ary[key].replace("39", "'");
         total.push(ary[key]);
         all.push(total);
       }
@@ -20,8 +21,7 @@
 
         var options = {
           wordtree: {
-            format: 'implicit',
-            word: 'cats'
+            format: 'implicit'
           }
         };
 
@@ -31,6 +31,6 @@
     </script>
   </head>
   <body>
-    <div id="wordtree_basic" style="width: 900px; height: 500px;"></div>
+    <div id="wordtree_basic" style="width: 900px; height: 800px;"></div>
   </body>
 </html>
